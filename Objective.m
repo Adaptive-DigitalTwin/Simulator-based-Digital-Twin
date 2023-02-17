@@ -1,49 +1,94 @@
-function fobj = Objective(x,source_parameters, parameters,validating_data, simulation_seed_folder, collection_dir, metric_type, response_data_type, IDs, IDs_types, weightage_constant)
+function fun1 = Objective(x, indexes, x0, parameters, meas_data_dict, simulation_seed_folder, collection_dir, metric_type, modules, calibration_data_involved,current_density_type, calibration_data_count, weightage_constant)
 
-if length(x) == 1
-    par_values = py.list({x});
+par_values = x0;
+
+for i = 1:length(x)
+     if x(i) <=0
+        par_values(indexes(i)) = 0.3;
+    else
+        par_values(indexes(i)) = x(i);
+    end
+end
+
+if length(par_values) == 1
+    par_values = py.list({par_values});
 else 
-    par_values = py.list(x);
+    par_values = py.list(par_values);
 end
 
-%model_output = py.BEASY_IN_OUT2.get_response_data_for_IDs_and_input_parameters(py.list(source_parameters), py.list(parameters), par_values, simulation_seed_folder, collection_dir,  py.list(response_data_type), py.list(IDs),  py.list(IDs_types));
-model_output = py.BEASY_IN_OUT1.get_response_data_for_IDs_and_input_parameters(py.list(parameters), par_values, simulation_seed_folder, collection_dir,  py.list(response_data_type), py.list(IDs),  py.list(IDs_types));
+model_output = py.BEASY_IN_OUT.get_output_data_for_given_parameters(parameters, par_values, simulation_seed_folder, collection_dir, py.list(calibration_data_involved), modules,  current_density_type, py.list(calibration_data_count));
 
-
-model_output =  convert_pydict2data(model_output, 1);
-
-%weightage_constant = [0.6, 0.3];
-
-if isequal(metric_type, 'nmsq')
-    
-    %data_involved = calibration_data_type;
-    fobj = normalised_mean_sq_diff(model_output, validating_data, response_data_type, weightage_constant);
+if strcmp(metric_type, 'msq')
+    fun1 = mean_sq_diff(model_output, meas_data_dict, calibration_data_involved, weightage_constant);
+elseif strcmp(metric_type, 'nmsq')
+    fun1 = normalised_mean_sq_diff(model_output, meas_data_dict, calibration_data_involved, weightage_constant);
+elseif strcmp(metric_type,'ccr')
+    fun1 = coefficient_of_correlation(model_output, meas_data_dict, calibration_data_involved, weightage_constant);
+elseif strcmp(metric_type,'compre_sum')
+    fun1 = Obj_comprehen(model_output,  meas_data_dict, weightage_constant);
+else
+    fun1 = Obj_compre_prod(model_output,  meas_data_dict, weightage_constant);  
 end
 
+
 end
 
 
-function f = normalised_mean_sq_diff(model_output, validating_data, data_involved, weightage_constant)
+function f = mean_sq_diff(model_output, meas_data, data_involved, weightage_constant)
 
     if length(data_involved) > 1
         f = 0;
         for i = 1:length(data_involved)
-            sub_meas_data = validating_data{i}(:,end);
-            [indices_with_zero, ~] = find(sub_meas_data ==0); 
-            sub_meas_data(indices_with_zero) = [];
-            sub_out_data = model_output{i}(:,end);
-            sub_out_data(indices_with_zero) = [];
-            %f = f + weightage_constant(i)* sqrt( mean((model_output{i}-meas_data{i}).^2./meas_data{i}.^2 ));
-            f = f + weightage_constant(i)* sqrt( mean((sub_out_data-sub_meas_data).^2./sub_meas_data.^2 ));
+            f = f + weightage_constant(i)* py.model_validation1.get_mean_square_sum_for_different(meas_data{i}, model_output{i+1});
         end
         
         f = f/length(data_involved);
         
     elseif strcmp(data_involved{1}, 'voltage')
-        sub_meas_data = validating_data{1};
-        f = sqrt( mean((model_output{1}-sub_meas_data(:,2)).^2./sub_meas_data(:,2).^2 ));
+        f = py.model_validation1.get_mean_square_sum_for_different(meas_data{1}, model_output{2});
     elseif strcmp(data_involved{1}, 'current density')
-        f = sqrt( mean((model_output{2}-meas_data{2}).^2./meas_data{2}.^2));
+        f = py.model_validation1.get_mean_square_sum_for_different(meas_data{1}, model_output{2});
     end
    
+end
+
+function f = normalised_mean_sq_diff(model_output, meas_data, data_involved, weightage_constant)
+
+    if length(data_involved) > 1
+        f = 0;
+        for i = 1:length(data_involved)
+            f = f + weightage_constant (i)* py.model_validation1.normalised_mean_square_for_difference(meas_data{i}, model_output{i+1});
+        end
+        
+        f = f/length(data_involved);
+        
+    elseif strcmp(data_involved{1}, 'voltage')
+        f = py.model_validation1.normalised_mean_square_for_difference(meas_data{1}, model_output{2});
+    elseif strcmp(data_involved{1}, 'current density')
+        f = py.model_validation1.normalised_mean_square_for_difference(meas_data{1}, model_output{2});
+    end
+   
+end
+
+function f = coefficient_of_correlation(model_output, meas_data, data_involved)
+     
+    if length(data_involved) > 1
+        meas_data_combined = meas_data{1};
+        model_output_combined = model_output{2};
+        for i = 1:length(data_involved)-1
+            meas_data_combined = py.model_validation1.merge_two_dict(meas_data_combined, meas_data{i+1});
+            model_output_combined = py.model_validation1.merge_two_dict(model_output_combined, model_output{i+2});
+        end
+        
+        f = py.model_validation1.coefficient_of_correlation_R2(meas_data_combined, model_output_combined);
+    
+    elseif strcmp(data_involved{1}, 'voltage')
+        f = py.model_validation1.coefficient_of_correlation_R2(meas_data{1}, model_output{2});
+        
+    elseif strcmp(data_involved{1}, 'current density')
+        f = py.model_validation1.coefficient_of_correlation_R2(meas_data{1}, model_output{3});
+    end
+        
+    f = 1/(1-f);
+    
 end
