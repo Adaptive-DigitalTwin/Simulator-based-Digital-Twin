@@ -40,10 +40,11 @@ After providing the necessary inputs, run the code in the `main.m` file. The cod
 
 ## Dependencies
 
-This project requires the following MATLAB modules:
+This project requires the following MATLAB (or External) modules:
 
 - `BEASY_IN_OUT1`: User built python module to obtain and modify Input-Output dataset to the BEASY model.
 - `fminunc` 
+- `PYTHON software` (installed in the system)
 
 ## References
 
