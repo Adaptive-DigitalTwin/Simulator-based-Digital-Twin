@@ -36,7 +36,7 @@ The following input data is required to run the code:
 
 - `x0`: A list of two floats representing the initial guess of the parameter values for the optimisation. Example: `[1.75, 3]`
 
-After providing the necessary inputs, run the code in the `main.m` file. The code will generate simulation data, generate a surrogate (response surface), evaluate the accuracy of the surrogate model, use the surrogate to find the solution parameter based upon the calibration data provided, and plot the results.
+After providing the necessary inputs, run the code in the `main.m` file. The code will generate simulation data continuously until it finds its best solution parameter based upon the calibration data provided and the suggestion from `fminunc` algorithm, and plot the results.
 
 ## Dependencies
 
