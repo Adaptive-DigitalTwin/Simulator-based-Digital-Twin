@@ -1,22 +1,15 @@
 
-
 IPs_IDs1 = [32866       32886       32870       32874       32882       32846       32850       32878       32854   32858       32890       32862];
-
 
 MP_IDs_normal_current_density = [14390, 7400, 4060, 16000, 19860, 23802];
 
-
 IDs = {py.list(IPs_IDs1), py.list(MP_IDs_normal_current_density)};
-
 
 IDs_mat_arr = {IPs_IDs1, MP_IDs_normal_current_density};
 
-
 IDs_types = {'Internal Points', 'Mesh Points'};
 
-
 calib_data_type = {'voltage', 'normal current density'};
-
 
 %%
 source_parameters = {'BARE','Zone1'};
@@ -30,7 +23,6 @@ x0 = [1.75, 3];
 
 %x0 = [2.25 3];
 
-
 %%
 
 root_folder = 'D:\EXPERIMENT\DOE_nd_data_generation\Multilinear_pol_curves\Parameter_BARE_Zone1';
@@ -40,12 +32,9 @@ simulation_seed_folder = fullfile(root_folder, 'Initial_files');
 
 collection_dir = fullfile(root_folder, 'Simulation_results');
 
-
 files_name = 'BU_Jacket_newCurves';
 
 %%
-
-
 initial_folder = '';
 for i = 1:length(parameters)
     initial_folder =   strcat(initial_folder, parameters{i},'_', num2str(x0(i), '%.4f'));
@@ -65,9 +54,7 @@ else
     initial_data = convert_pydict2data(initial_dict,0);
 end
 
-
 %%
-
 
 calib_dir = fullfile(root_folder,'Calibration_data2');
 %calib_dir = fullfile(root_folder,'Calibration_data');
@@ -99,11 +86,9 @@ data_index = 1;
 
 difference_in_bar_chart(ax,initial_data{data_index}, calib_data_inc_error{data_index},{'simulation data from initial model','calibration data'});
 
-
 %%
 
 metric = 'nmsq';
-
 
 %obj_weightage = [0.6 0.3];
 %obj_weightage = [2 1];
@@ -120,7 +105,6 @@ obj_weightage = [1 2];
                                
 %repetitive_calibration_count = 2;
 %%
-
 
 testing_par_value = xsol;
 
