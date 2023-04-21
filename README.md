@@ -43,7 +43,7 @@ After providing the necessary inputs, run the code in the `main.m` file. The cod
 This project requires the following MATLAB modules:
 
 - `BEASY_IN_OUT1`: User built python module to obtain and modify Input-Output dataset to the BEASY model.
-- `ccdesign` 
+- `fminunc` 
 
 ## References
 
