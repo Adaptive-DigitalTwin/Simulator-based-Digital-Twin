@@ -35,3 +35,18 @@ The following input data is required to run the code:
 - `calib_dir`: A string representing the calibration directory.
 
 - `x0`: A list of two floats representing the initial guess of the parameter values for the optimisation. Example: `[1.75, 3]`
+
+After providing the necessary inputs, run the code in the `main.m` file. The code will generate simulation data, generate a surrogate (response surface), evaluate the accuracy of the surrogate model, use the surrogate to find the solution parameter based upon the calibration data provided, and plot the results.
+
+## Dependencies
+
+This project requires the following MATLAB modules:
+
+- `BEASY_IN_OUT1`: User built python module to obtain and modify Input-Output dataset to the BEASY model.
+- `ccdesign` 
+
+## References
+
+For more information on the modules used in this project, please refer to the following resources:
+
+- `fminunc`: [(https://uk.mathworks.com/help/optim/ug/fminunc.html)](https://uk.mathworks.com/help/optim/ug/fminunc.html)
