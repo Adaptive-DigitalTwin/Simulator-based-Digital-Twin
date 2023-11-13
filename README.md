@@ -43,6 +43,11 @@ To run the code, first provide the necessary inputs into the 'main.mlx' file ass
 
 After providing the necessary inputs, run the code in the `main.mlx` file. The code will generate simulation data continuously until it finds its best solution parameter based upon the calibration data provided and the suggestion from `fminunc` algorithm, and plot the results.
 
+## Output 
+
+The aim of the experiment is to obtain the solution parameters which will be obtained as _'xsol'_ after the experiment. But also the additional process data can be visualised and seen in the 'main.mlx' file itselt while the simulation data will be stored into the collection directory.
+
+
 ## Dependencies
 
 This project requires the following MATLAB (or External) modules:
