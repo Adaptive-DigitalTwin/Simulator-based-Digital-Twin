@@ -4,10 +4,8 @@ The project is about enabling simulator-based Structural Digital Twin
 
 It requires the core process simulator, simulation model enabling like geometrical model and discretisation tools in advance as this tool is about validating and calibration of the simulator based DT.
 
-
 The codes are designed to perform a specific task that requires certain input data. The purpose of this readme is to explain the input data required to run the code successfully. 
-
-While, most of the experiment related procedure are already described into the thesis chapter (Chapter 5), but also in the MATLAB _'main.mlx'_ file, few more generic requirements are explained below: 
+While, most of the experiment related procedure are already detailed in the thesis's **Chapter 5**, the necessary technical aspects are also outlined within the MATLAB file _'main.mlx.'_
 
 ## Input Data
 
