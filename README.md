@@ -9,9 +9,6 @@ The codes are designed to perform a specific task that requires certain input da
 
 While, most of the experiment related procedure are already described into the thesis chapter, but also in the MATLAB _'main.mlx'_ file, few more generic requirements are explained below: 
 
-### Note: 
-This experiment utilises the _Cathodic-Protection (CP)_ Model which is constructed using the _BEASY software (V21)_. As a result, the data types primarily pertain to the CP model. However, this experiment can be replicated for similar problems, necessitating the simulation solver and support for data description and retrieval. Therefore, users must modify the codes for data retrieval and feeding or build their own for the specific model and simulator they are using. Additionally, the following input should be adjusted accordingly.
-
 ## Input Data
 
 To run the code, first provide the necessary inputs into the 'main.mlx' file associated with the following variables:
@@ -42,6 +39,9 @@ To run the code, first provide the necessary inputs into the 'main.mlx' file ass
 - `x0`: A list of two floats representing the initial guess of the parameter values for the optimisation. Example: `[1.75, 3]`
 
 After providing the necessary inputs, run the code in the _`main.mlx`_ file. The code will generate simulation data continuously until it finds its best solution parameter based upon the calibration data provided and the suggestion from `fminunc` algorithm, and plot the results.
+
+### Note: 
+This experiment utilises the _Cathodic-Protection (CP)_ Model which is constructed using the _BEASY software (V21)_. As a result, the data types primarily pertain to the CP model. However, this experiment can be replicated for similar problems, necessitating the simulation solver and support for data description and retrieval. Therefore, users must modify the codes for data retrieval and feeding or build their own for the specific model and simulator they are using. Additionally, the following input should be adjusted accordingly.
 
 ## Output 
 
