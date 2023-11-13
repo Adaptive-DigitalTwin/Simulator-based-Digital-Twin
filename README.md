@@ -41,7 +41,7 @@ To run the code, first provide the necessary inputs into the 'main.mlx' file ass
 
 - `x0`: A list of two floats representing the initial guess of the parameter values for the optimisation. Example: `[1.75, 3]`
 
-After providing the necessary inputs, run the code in the _`main.mlx` _file. The code will generate simulation data continuously until it finds its best solution parameter based upon the calibration data provided and the suggestion from `fminunc` algorithm, and plot the results.
+After providing the necessary inputs, run the code in the _`main.mlx`_ file. The code will generate simulation data continuously until it finds its best solution parameter based upon the calibration data provided and the suggestion from `fminunc` algorithm, and plot the results.
 
 ## Output 
 
