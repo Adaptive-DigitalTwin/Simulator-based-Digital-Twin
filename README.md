@@ -10,7 +10,7 @@ The codes are designed to perform a specific task that requires certain input da
 While, most of the experiment related procedure are already described into the thesis chapter, but also in the MATLAB 'main.mlx' file, few more generic requirements are explained below: 
 
 ## Note: 
-This experiment utilises the Cathodic-Protection (CP) Model and is constructed using the BEASY software. As a result, the data types primarily pertain to the CP model. However, this experiment can be replicated for similar problems, necessitating the simulation solver and support for data description and retrieval. Therefore, users must modify the codes for data retrieval and feeding or build their own for the specific model and simulator they are using. Additionally, the following input should be adjusted accordingly.
+This experiment utilises the Cathodic-Protection (CP) Model which is constructed using the BEASY software. As a result, the data types primarily pertain to the CP model. However, this experiment can be replicated for similar problems, necessitating the simulation solver and support for data description and retrieval. Therefore, users must modify the codes for data retrieval and feeding or build their own for the specific model and simulator they are using. Additionally, the following input should be adjusted accordingly.
 
 ## Input Data
 
