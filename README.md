@@ -2,7 +2,7 @@
 ## Introduction
 The project is about enabling simulator-based Structural Digital Twin 
 
-It requires the core process simulator, simulation model enabling like geometrical model and discretization tools in advance as this tool is about validating and calibration of the simulator based DT.
+It requires the core process simulator, simulation model enabling like geometrical model and discretisation tools in advance as this tool is about validating and calibration of the simulator based DT.
 
 
 The codes are designed to perform a specific task that requires certain input data. The purpose of this readme is to explain the input data required to run the code successfully. 
