@@ -7,7 +7,7 @@ It requires the core process simulator, simulation model enabling like geometric
 
 The codes are designed to perform a specific task that requires certain input data. The purpose of this readme is to explain the input data required to run the code successfully. 
 
-While, most of the experiment related procedure are already described into the thesis chapter, but also in the MATLAB _'main.mlx'_ file, few more generic requirements are explained below: 
+While, most of the experiment related procedure are already described into the thesis chapter (Chapter 5), but also in the MATLAB _'main.mlx'_ file, few more generic requirements are explained below: 
 
 ## Input Data
 
