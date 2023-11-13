@@ -45,7 +45,7 @@ After providing the necessary inputs, run the code in the _`main.mlx` _file. The
 
 ## Output 
 
-The aim of the experiment is to obtain the solution parameters which will be obtained as _'xsol' _after the experiment. But also the additional process data can be visualised and seen in the _'main.mlx'_ file itselt while the simulation data will be stored into the collection directory.
+The aim of the experiment is to obtain the solution parameters which will be obtained as _'xsol'_ after the experiment. But also the additional process data can be visualised and seen in the _'main.mlx'_ file itselt while the simulation data will be stored into the collection directory.
 
 
 ## Dependencies
