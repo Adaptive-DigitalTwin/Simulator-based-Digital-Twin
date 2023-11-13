@@ -41,7 +41,9 @@ To run the code, first provide the necessary inputs into the 'main.mlx' file ass
 After providing the necessary inputs, run the code in the _`main.mlx`_ file. The code will generate simulation data continuously until it finds its best solution parameter based upon the calibration data provided and the suggestion from `fminunc` algorithm, and plot the results.
 
 ### Note: 
-This experiment utilises the _Cathodic-Protection (CP)_ Model which is constructed using the _BEASY software (V21)_. As a result, the data types primarily pertain to the CP model. However, this experiment can be replicated for similar problems, necessitating the simulation solver and support for data description and retrieval. Therefore, users must modify the codes for data retrieval and feeding or build their own for the specific model and simulator they are using. Additionally, the following input should be adjusted accordingly.
+This experiment utilises the _Cathodic-Protection (CP)_ Model which is constructed using the _BEASY software (V21)_. As a result, the data types primarily pertain to the CP model. However, this experiment can be replicated for similar problems, necessitating the simulation solver and support for data description and retrieval. 
+
+Therefore, users must modify the codes for data retrieval and feeding or build their own for the specific model and simulator they are using. Additionally, the above inputs should be adjusted accordingly.
 
 ## Output 
 
