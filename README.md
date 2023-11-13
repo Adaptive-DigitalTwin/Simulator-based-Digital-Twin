@@ -1,6 +1,6 @@
 # Readme
 ## Introduction
-The project is about enabling simulator-based Structural Digital Twin 
+The project is about enabling simulator-based Structural Digital Twin.
 
 It requires the core process simulator, simulation model enabling like geometrical model and discretisation tools in advance as this tool is about validating and calibration of the simulator based DT.
 
@@ -9,7 +9,7 @@ While, most of the experiment related procedure are already detailed in the thes
 
 ## Input Data
 
-To run the code, first provide the necessary inputs into the 'main.mlx' file associated with the following variables:
+To run the code, first provide the necessary inputs into the _'main.mlx'_ file associated with the following variables:
 
 - `source_parameters`: A list of two strings representing the parameters used as source in the parameter file. Example: `['BARE', 'Zone1']`
 
