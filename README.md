@@ -7,7 +7,7 @@ It requires the core process simulator, simulation model enabling like geometric
 
 The codes are designed to perform a specific task that requires certain input data. The purpose of this readme is to explain the input data required to run the code successfully. 
 
-While, most of the experiment related procedure are already described into the thesis chapter, but also in the MATLAB _'main.mlx' _file, few more generic requirements are explained below: 
+While, most of the experiment related procedure are already described into the thesis chapter, but also in the MATLAB _'main.mlx'_ file, few more generic requirements are explained below: 
 
 ### Note: 
 This experiment utilises the _Cathodic-Protection (CP)_ Model which is constructed using the _BEASY software (V21)_. As a result, the data types primarily pertain to the CP model. However, this experiment can be replicated for similar problems, necessitating the simulation solver and support for data description and retrieval. Therefore, users must modify the codes for data retrieval and feeding or build their own for the specific model and simulator they are using. Additionally, the following input should be adjusted accordingly.
